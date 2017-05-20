@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Assignment1</string>
+
+    <string name="start_activity_button">Start!</string>
+    <string name="start_activity_name">Enter name</string>
+
+    <string name="answers_title">Pick the answer:</string>
+    <string name="next_button">Next</string>
+    <string name="previous_button">Previous</string>
+
+    <string name="start_again_button">Start again</string>
+    <string name="share_button">Share</string>
+</resources>

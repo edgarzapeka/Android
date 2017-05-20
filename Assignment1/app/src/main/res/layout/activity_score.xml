@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/congratsImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Congratulation img"/>
+
+    <Button
+        android:id="@+id/startAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_again_button"
+        android:layout_marginStart="59dp"
+        android:layout_marginBottom="166dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/startAgainButton"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/startAgainButton"
+        android:text="@string/share_button"/>
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/startAgainButton"
+        android:layout_alignStart="@+id/startAgainButton"
+        android:layout_marginBottom="60dp"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/resultTextView"
+        android:layout_alignStart="@+id/resultTextView"
+        android:layout_marginBottom="36dp"
+        android:textSize="30sp"/>
+</RelativeLayout>
