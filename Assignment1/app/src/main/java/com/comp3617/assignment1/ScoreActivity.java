@@ -20,6 +20,7 @@ public class ScoreActivity extends AppCompatActivity {
     private ImageView mImage;
 
     private int mScore;
+    private String mUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,8 @@ public class ScoreActivity extends AppCompatActivity {
         mShareButton = (Button) findViewById(R.id.shareButton);
 
         Intent intent = getIntent();
-        mNameTextView.setText("Good job " + intent.getStringExtra("userName"));
+        mUserName = intent.getStringExtra("userName");
+        mNameTextView.setText("Good job " + mUserName);
         mScore = getScore((HashMap<String, Boolean>) intent.getSerializableExtra("resultsMap"));
         mResultTextView.setText("Your score: " + mScore);
 
