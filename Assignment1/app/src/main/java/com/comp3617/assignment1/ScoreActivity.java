@@ -13,11 +13,15 @@ import java.util.Map;
 
 public class ScoreActivity extends AppCompatActivity {
 
+    private final String USER_NAME_KEY = "user_name_key";
+    private final String SCORE_KEY = "score_key";
+
     private TextView mNameTextView;
     private TextView mResultTextView;
     private Button mStartAgain;
     private Button mShareButton;
     private ImageView mImage;
+    private Button mFinishButton;
 
     private int mScore;
     private String mUserName;
@@ -33,12 +37,19 @@ public class ScoreActivity extends AppCompatActivity {
         mNameTextView = (TextView) findViewById(R.id.nameTextView);
         mResultTextView = (TextView) findViewById(R.id.resultTextView);
         mShareButton = (Button) findViewById(R.id.shareButton);
+        mFinishButton = (Button) findViewById(R.id.finish_button);
 
-        Intent intent = getIntent();
-        mUserName = intent.getStringExtra("userName");
-        mNameTextView.setText("Good job " + mUserName);
-        mScore = getScore((HashMap<String, Boolean>) intent.getSerializableExtra("resultsMap"));
+        if (savedInstanceState == null){
+            Intent intent = getIntent();
+            mUserName = intent.getStringExtra("userName");
+            mScore = getScore((HashMap<String, Boolean>) intent.getSerializableExtra("resultsMap"));
+        } else{
+            mUserName = savedInstanceState.getString(USER_NAME_KEY);
+            mScore = savedInstanceState.getInt(SCORE_KEY);
+        }
+
         mResultTextView.setText("Your score: " + mScore);
+        mNameTextView.setText("Good job " + mUserName);
 
         addEventHandlers();
     }
@@ -61,6 +72,12 @@ public class ScoreActivity extends AppCompatActivity {
                 startActivity(sendIntent);
             }
         });
+        mFinishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private int getScore(HashMap<String, Boolean> resultSet ){
@@ -74,4 +91,12 @@ public class ScoreActivity extends AppCompatActivity {
         return result;
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        outState.putString(USER_NAME_KEY, mUserName);
+        outState.putInt(SCORE_KEY, mScore);
+
+        super.onSaveInstanceState(outState);
+    }
 }

@@ -1,4 +1,4 @@
-# Quiz
+# Quiz app
 
 The app enables user to go through some questions with multiple answers and get a score in the result.
 

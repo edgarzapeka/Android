@@ -8,9 +8,10 @@
     <ImageView
         android:id="@+id/congratsImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:layout_above="@+id/nameTextView"
         android:contentDescription="Congratulation img"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentEnd="true"/>
 
     <Button
         android:id="@+id/startAgainButton"
@@ -18,17 +19,15 @@
         android:layout_height="wrap_content"
         android:text="@string/start_again_button"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignStart="@+id/congratsImage"/>
 
     <Button
         android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/finish_button"
-        android:layout_alignBottom="@+id/finish_button"
-        android:layout_marginStart="15dp"
-        android:layout_toEndOf="@+id/finish_button"
-        android:text="@string/share_button"/>
+        android:text="@string/share_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/congratsImage"/>
 
     <TextView
         android:id="@+id/resultTextView"
@@ -36,17 +35,18 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/startAgainButton"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="147dp"
+        android:layout_marginBottom="60dp"
         android:textAlignment="center"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/resultTextView"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="34dp"
+        android:layout_alignStart="@+id/resultTextView"
+        android:layout_marginBottom="36dp"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="30sp"/>
@@ -56,6 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/finish_button"
-        android:layout_below="@+id/resultTextView"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginEnd="119dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/shareButton"/>
 </RelativeLayout>

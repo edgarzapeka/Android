@@ -10,4 +10,5 @@
 
     <string name="start_again_button">Start again</string>
     <string name="share_button">Share</string>
+    <string name="finish_button">Finish</string>
 </resources>

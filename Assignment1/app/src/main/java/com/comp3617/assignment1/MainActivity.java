@@ -19,6 +19,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String CURSOR_KEY = "cursor_key";
+    private final String RESULTS_MAP_KEY = "results_map_key";
+    private final String USER_NAME_KEY = "user_name_key";
+
     private String mUserName;
     private List<Question> mQuestionList;
     private int mCursor;
@@ -41,24 +45,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        mUserNameEditText = (EditText) findViewById(R.id.nameText);
-        mStartButton = (Button) findViewById(R.id.startButton);
-        mStartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mUserName = mUserNameEditText.getText().toString();
-                startQuestions();
-            }
-        });
+        if (savedInstanceState == null){
+            initValues();
+            mUserNameEditText = (EditText) findViewById(R.id.nameText);
+            mStartButton = (Button) findViewById(R.id.startButton);
+            mStartButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mUserName = mUserNameEditText.getText().toString();
+                    startQuestions();
+                }
+            });
+        }else{
+            mCursor = savedInstanceState.getInt(CURSOR_KEY);
+            mResultsMap = (HashMap) savedInstanceState.get(RESULTS_MAP_KEY);
+            mUserName = savedInstanceState.getString(USER_NAME_KEY);
+            startQuestions();
+        }
+
+    }
+
+    private void initValues(){
+        mResultsMap = new HashMap<>();
+        mCursor = new Integer(0);
     }
 
     private void startQuestions(){
         setContentView(R.layout.activity_questions);
 
-        mResultsMap = new HashMap<>();
-        mQuestionList = new ArrayList<>();
         setQuestionList();
-        mCursor = 0;
 
         mQuestionImage = (ImageView) findViewById(R.id.questionImage);
         mNextButton = (Button) findViewById(R.id.nextButton);
@@ -74,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setQuestionList(){
+        mQuestionList = new ArrayList<>();
+
         mQuestionList.add(new Question("Which is the world's highest mountain?", "Mount Everest", new ArrayList<String>(Arrays.asList("Kilimanjaro", "Makalu","Mount Everest")), R.drawable.mountain));
         mQuestionList.add(new Question("Which is the longest river in the U.S.?", "Missouri River", new ArrayList<String>(Arrays.asList("Colorado River", "Yukon River","Missouri River")), R.drawable.us_river));
         mQuestionList.add(new Question("The biggest desert in the world is. . ?", "Sahara", new ArrayList<String>(Arrays.asList("Arabian", "Great Australian","Sahara")), R.drawable.desert));
@@ -82,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
         mQuestionList.add(new Question("Which is the largest body of water?", "Pacific Ocean", new ArrayList<String>(Arrays.asList("Atlantic Ocean", "Indian Ocean","Pacific Ocean")), R.drawable.ocean));
         mQuestionList.add(new Question("Which of the following created Java programming language?", "James Gosling", new ArrayList<String>(Arrays.asList("James Gosling", "Guido van Rossum","Bjarne Stroustrup")), R.drawable.java));
         mQuestionList.add(new Question("Who is Google CEO?", "Sundar Pichai", new ArrayList<String>(Arrays.asList("Sundar Pichai", "Tim Cook","Satya Nadella")), R.drawable.google_ceo));
+
+        Collections.shuffle(mQuestionList);
     }
 
     private void updateQuestion(){
@@ -121,6 +140,16 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("resultsMap", mResultsMap);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        outState.putInt(CURSOR_KEY, mCursor);
+        outState.putSerializable(RESULTS_MAP_KEY, mResultsMap);
+        outState.putString(USER_NAME_KEY, mUserName);
+
+        super.onSaveInstanceState(outState);
     }
 
 }
