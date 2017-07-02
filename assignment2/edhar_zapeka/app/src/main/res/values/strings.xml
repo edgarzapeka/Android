@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">MyTasks</string>
+    <string name="add_menu_string">Add</string>
+    <string name="settings_string">Settings</string>
+    <string name="delete_menu_string">Add</string>
+    <string name="save_string">Save</string>
+    <string name="cancel_string">Cancel</string>
+    <string name="title_edit_text_string">Enter title:</string>
+    <string name="text_edit_text_string">Enter text...</string>
+
+    <string-array name="priority_array">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+
+    <string-array name="status_array">
+        <item>In Design</item>
+        <item>In Progress</item>
+        <item>Done</item>
+    </string-array>
+
+    <string name="status_text_view">Status:</string>
+    <string name="priority_text_view">Priority:</string>
+    <string name="due_date_text">Pick due date:</string>
+    <string name="date_button">None</string>
+
+    <string name="date_picker_title">Due date</string>
+
+    <!-- Settings -->
+    <string name="reminder_title_settings">Set a calendar reminder?</string>
+    <string name="reminder_key_settings">reminder_name_settings</string>
+    <string name="reminder_summary_settings">It allow to set a reminder in the calendar</string>
+
+    <string name="time_key_settings">time_key_settings</string>
+    <string name="time_title_settings">Set a time for reminder</string>
+    <string name="time_summary_settings">Set a default time for reminder</string>
+
+    <string name="task_priority_key_settings">task_priority_key_settings</string>
+    <string name="task_priority_title_settings">Paint task by importance?</string>
+    <string name="task_priority_summary_settings">It is allow to get different colors for a different task importance</string>
+
+    <!-- Embeded strings -->
+    <string name="title_cardview_text">Title: %s</string>
+    <string name="description_cardview_text">Description: %s</string>
+    <string name="status_cardview_text">Status: %s</string>
+    <string name="priority_cardview_text">Priority: %s</string>
+    <string name="date_cardview_text">Due date: %s</string>
+
+</resources>

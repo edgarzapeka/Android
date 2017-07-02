@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TimePicker xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/pref_time_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dialog_alert_default_padding"
+            android:paddingBottom="@dimen/dialog_alert_default_padding"
+            android:theme="@style/AppAlertDialogContent"
+    />

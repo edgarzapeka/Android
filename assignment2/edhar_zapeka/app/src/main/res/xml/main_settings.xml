@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v7.preference.PreferenceCategory
+        android:title="Calendar reminder">
+
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:key="@string/reminder_key_settings"
+            android:title="@string/reminder_title_settings"
+            android:summary="@string/reminder_summary_settings"
+            android:defaultValue="false" />
+
+        <assignment2.comp3617.com.edhar_zapeka.widget.TimePreference
+            android:key="@string/time_key_settings"
+            android:title="@string/time_title_settings"
+            android:summary="@string/time_summary_settings"
+            android:defaultValue="480"
+            style="@style/AppPreference.DialogPreference"/>
+
+    </android.support.v7.preference.PreferenceCategory>
+
+    <android.support.v7.preference.PreferenceCategory
+        android:title="Interface">
+
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:key="@string/task_priority_key_settings"
+            android:title="@string/task_priority_title_settings"
+            android:summary="@string/task_priority_summary_settings"
+            android:defaultValue="false" />
+
+
+    </android.support.v7.preference.PreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>
