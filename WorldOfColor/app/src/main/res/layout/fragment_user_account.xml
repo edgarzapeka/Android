@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="6dp">
+
+        <TextView
+            android:id="@+id/user_card_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/user_liked_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_info_my_cards"
+        android:textSize="24sp"
+        android:gravity="center"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/user_card_list"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/user_info_cards_liked_title"
+        android:textSize="24sp"
+        android:gravity="center"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/user_liked_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
