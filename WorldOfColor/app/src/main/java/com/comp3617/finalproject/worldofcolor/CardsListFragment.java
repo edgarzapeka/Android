@@ -544,11 +544,11 @@ public class CardsListFragment extends Fragment {
                 try{
                     File photoFile = createImageFileWith();
                     mCurrentPhotoPath = photoFile.getAbsolutePath();
-                    photoURI = FileProvider.getUriForFile(getActivity().getApplicationContext(), getString(R.string.file_provider_authority), photoFile);
+                    photoURI = FileProvider.getUriForFile(getActivity().getApplicationContext(),
+                            getString(R.string.file_provider_authority), photoFile);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
-
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, RC_CAMERA_PICKER);
             }

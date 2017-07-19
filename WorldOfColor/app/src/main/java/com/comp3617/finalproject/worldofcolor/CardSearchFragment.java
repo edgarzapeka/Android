@@ -25,8 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -74,13 +72,6 @@ public class CardSearchFragment extends Fragment {
                     tmpCard.setColorsFromHashMap(mapColors);
                     allCards.add(tmpCard);
                 }
-
-                Collections.sort(allCards, new Comparator<Card>() {
-                    @Override
-                    public int compare(Card o1, Card o2) {
-                        return o1.getLikes().size() > o2.getLikes().size() ? 1 : -1;
-                    }
-                });
 
                 mAdapter.setCards(findMatchingPhotos(allCards));
                 mAdapter.notifyDataSetChanged();

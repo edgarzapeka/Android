@@ -91,7 +91,7 @@ public class UserAccountFragment extends Fragment {
 
         @Override
         public CardsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_search_item_row, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_user_info_row, parent, false);
 
             return new CardsViewHolder(v);
         }
@@ -102,12 +102,23 @@ public class UserAccountFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(final CardsViewHolder holder, int position) {
+        public void onBindViewHolder(final CardsViewHolder holder, final int position) {
             holder.mAuthor.setText(mCards.get(position).getAuthorsName());
 
+            if (mCards.get(position).getAuthorId().equals(mFirebaseAuth.getCurrentUser().getUid())){
+                holder.mDeleteCard.setVisibility(View.VISIBLE);
+                holder.mDeleteCard.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mCardsDatabaseReference.child(mCards.get(position).getDbKey()).removeValue();
+                    }
+                });
+            } else{
+                holder.mDeleteCard.setVisibility(View.INVISIBLE);
+            }
             Picasso.with(holder.mImage.getContext()).load(mCards.get(position).getImageUrl()).into(holder.mImage);
 
-            holder.mCardView.setOnClickListener(new View.OnClickListener() {
+            holder.mImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Query queryRef = mCardsDatabaseReference.orderByChild("imageUrl").equalTo(mCards.get(holder.getPosition()).getImageUrl());
@@ -146,13 +157,15 @@ public class UserAccountFragment extends Fragment {
             private CardView mCardView;
             private TextView mAuthor;
             private ImageView mImage;
+            private ImageView mDeleteCard;
 
             public CardsViewHolder(View v){
                 super(v);
 
-                mCardView = (CardView) v.findViewById(R.id.card_search_view);
-                mAuthor = (TextView) v.findViewById(R.id.author_card_search_row);
-                mImage = (ImageView) v.findViewById(R.id.image_card_search_row);
+                mCardView = (CardView) v.findViewById(R.id.card_user_info_view);
+                mAuthor = (TextView) v.findViewById(R.id.author_card_user_info_row);
+                mImage = (ImageView) v.findViewById(R.id.image_card_user_info_row);
+                mDeleteCard = (ImageView) v.findViewById(R.id.delete_card);
             }
         }
     }
@@ -175,6 +188,7 @@ public class UserAccountFragment extends Fragment {
             mDatabaseListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                mNumberOfReceivedLikes = 0;
                 ArrayList<Card> userCards = new ArrayList<Card>();
                 ArrayList<Card> userLikedCards = new ArrayList<Card>();
                 for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
@@ -184,6 +198,7 @@ public class UserAccountFragment extends Fragment {
                     tmpCard.setAuthorId((String)map.get("authorId"));
                     tmpCard.setImageUrl((String)map.get("imageUrl"));
                     tmpCard.setLikes((ArrayList<String>)map.get("likes"));
+                    tmpCard.setDbKey(singleSnapshot.getKey());
 
                     ArrayList<CardColor> mapColors = (ArrayList<CardColor>)map.get("colors");
                     tmpCard.setColorsFromHashMap(mapColors);
@@ -195,9 +210,8 @@ public class UserAccountFragment extends Fragment {
                     }
                 }
 
-                int i = userCards.size();
-                mUserCardsNumber.setText("Cards Number: " + String.valueOf(i));
-                mUserNumberOfReceivedLikes.setText("Received likes: " + String.valueOf(mNumberOfReceivedLikes));
+                mUserCardsNumber.setText(String.format(getString(R.string.user_info_post_number_string), userCards.size()));
+                mUserNumberOfReceivedLikes.setText(String.format(getString(R.string.user_info_likes_received_number_string), mNumberOfReceivedLikes));
                 mLikedCardsAdapter.setCards(userLikedCards);
                 mUserCardsAdapter.setCards(userCards);
             }
