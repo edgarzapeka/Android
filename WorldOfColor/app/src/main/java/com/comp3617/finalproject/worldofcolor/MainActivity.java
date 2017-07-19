@@ -33,4 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
         mFm.popBackStackImmediate();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 }

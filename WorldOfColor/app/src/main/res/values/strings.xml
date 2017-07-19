@@ -5,5 +5,5 @@
     <string name="user_info_post_number_string" formatted="false">My Cards Number: %d</string>
     <string name="user_info_likes_received_number_string" formatted="false">Received Likes: %d</string>
     <string name="user_info_cards_liked_title">Cards I Liked:</string>
-    <string name="user_info_my_cards">My Cards</string>
+    <string name="user_info_my_cards">My Cards:</string>
 </resources>

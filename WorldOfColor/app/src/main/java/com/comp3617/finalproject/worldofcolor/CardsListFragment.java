@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import com.comp3617.finalproject.worldofcolor.data.Card;
 import com.comp3617.finalproject.worldofcolor.data.CardColor;
+import com.comp3617.finalproject.worldofcolor.util.InternetConnection;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,12 +69,6 @@ import java.util.Random;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.squareup.picasso.Picasso.with;
-
-//import android.net.Uri;
-
-/**
- * Created by edz on 2017-07-11.
- */
 
 public class CardsListFragment extends Fragment {
 
@@ -151,7 +146,6 @@ public class CardsListFragment extends Fragment {
                 }
             }
         });
-        //mRecyclerView.getRecycledViewPool().setMaxRecycledViews(0, 0);
 
         return v;
     }
@@ -198,7 +192,6 @@ public class CardsListFragment extends Fragment {
         } else if (requestCode == RC_CAMERA_PICKER && resultCode == RESULT_OK ) {
              Bitmap sourse = BitmapFactory.decodeFile(mCurrentPhotoPath, provideCompressionBitmapFactoryOptions());
              updatePicture(getResizedBitmap(sourse, 800, 800), mImagesStorageReference.child(new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())));
-
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -256,10 +249,8 @@ public class CardsListFragment extends Fragment {
                 return null;
             }
 
-
             @Override
-            protected void onPostExecute(Void aVoid) {
-            }
+            protected void onPostExecute(Void aVoid) {}
         }.execute();
     }
 
@@ -268,8 +259,6 @@ public class CardsListFragment extends Fragment {
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    //Bitmap image = getResizedBitmap(bitmap, 800, 800);
-                    Bitmap image  = bitmap;
                     Palette palette = Palette.from(bitmap).generate();
 
                     final List<CardColor> cardColors = new ArrayList<>();
@@ -318,8 +307,7 @@ public class CardsListFragment extends Fragment {
             }
 
             @Override
-            protected void onPostExecute(Void aVoid) {
-            }
+            protected void onPostExecute(Void aVoid) {}
         }.execute();
     }
 
@@ -368,10 +356,8 @@ public class CardsListFragment extends Fragment {
             }
             if (mCards.get(position).getLikes().contains(mFirebaseAuth.getCurrentUser().getUid())) {
                 holder.mLike.setImageResource(R.drawable.filled_like);
-                //Picasso.with(holder.mLike.getContext()).load(R.drawable.filled_like).into(holder.mImage);
             } else {
                 holder.mLike.setImageResource(R.drawable.empty_like);
-                // Picasso.with(holder.mLike.getContext()).load(R.drawable.empty_like).into(holder.mImage);
             }
 
             holder.mLike.setOnClickListener(new View.OnClickListener() {
@@ -445,9 +431,7 @@ public class CardsListFragment extends Fragment {
     }
 
     public void uploadRandomImages() {
-
-        for (int i = 0; i < 10; i++) {
-
+        for (int i = 0; i < 5; i++) {
             new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(Void... params) {
@@ -483,7 +467,6 @@ public class CardsListFragment extends Fragment {
                         final ArrayList<String> likes = new ArrayList<String>();
                         likes.add(mFirebaseAuth.getCurrentUser().getUid() == null ? "Random Image" : mFirebaseAuth.getCurrentUser().getUid());
 
-
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                         byte[] testData = baos.toByteArray();
@@ -507,8 +490,7 @@ public class CardsListFragment extends Fragment {
                 }
 
                 @Override
-                protected void onPostExecute(Void aVoid) {
-                }
+                protected void onPostExecute(Void aVoid) {}
             }.execute();
         }
     }
@@ -517,6 +499,7 @@ public class CardsListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+        InternetConnection.isConnected(getContext());
     }
 
     @Override
@@ -626,7 +609,9 @@ public class CardsListFragment extends Fragment {
                 public void onChildMoved(DataSnapshot dataSnapshot, String s) {}
 
                 @Override
-                public void onCancelled(DatabaseError databaseError) {}
+                public void onCancelled(DatabaseError databaseError) {
+                    InternetConnection.isConnected(getContext());
+                }
             };
             mCardsDatabaseReference.addChildEventListener(mChildEventListener);
         }

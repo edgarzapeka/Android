@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.comp3617.finalproject.worldofcolor.data.Card;
 import com.comp3617.finalproject.worldofcolor.data.CardColor;
+import com.comp3617.finalproject.worldofcolor.util.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -78,7 +79,9 @@ public class CardSearchFragment extends Fragment {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+                InternetConnection.isConnected(getContext());
+            }
         });
     }
 
@@ -88,7 +91,6 @@ public class CardSearchFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_card_search, container, false);
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.cards_list_search);
-        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         mRecyclerView.setAdapter(mAdapter);
 
@@ -117,7 +119,6 @@ public class CardSearchFragment extends Fragment {
 
         return result;
     }
-
 
     private class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardsViewHolder> {
 
@@ -162,7 +163,9 @@ public class CardSearchFragment extends Fragment {
                         }
 
                         @Override
-                        public void onCancelled(DatabaseError databaseError) {}
+                        public void onCancelled(DatabaseError databaseError) {
+                            InternetConnection.isConnected(getContext());
+                        }
                     });
                 }
             });
@@ -192,5 +195,11 @@ public class CardSearchFragment extends Fragment {
                 mImage = (ImageView) v.findViewById(R.id.image_card_search_row);
             }
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        InternetConnection.isConnected(getContext());
     }
 }

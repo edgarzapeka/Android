@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.comp3617.finalproject.worldofcolor.data.Card;
 import com.comp3617.finalproject.worldofcolor.data.CardColor;
+import com.comp3617.finalproject.worldofcolor.util.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -88,7 +89,9 @@ public class CardInfoFragment extends Fragment {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+                InternetConnection.isConnected(getContext());
+            }
         });
 
         mImageView = (ImageView) v.findViewById(R.id.card_image_info);
@@ -168,5 +171,11 @@ public class CardInfoFragment extends Fragment {
         public void setTotalNumberOfPixelsDetected(int number){
             mTotalNumberOfPixelsDetected = number;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        InternetConnection.isConnected(getContext());
     }
 }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.comp3617.finalproject.worldofcolor.data.Card;
 import com.comp3617.finalproject.worldofcolor.data.CardColor;
+import com.comp3617.finalproject.worldofcolor.util.InternetConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -181,6 +182,7 @@ public class UserAccountFragment extends Fragment {
     public void onResume() {
         super.onResume();
         attachDatabaseListener();
+        InternetConnection.isConnected(getContext());
     }
 
     private void attachDatabaseListener(){
@@ -217,7 +219,9 @@ public class UserAccountFragment extends Fragment {
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+                InternetConnection.isConnected(getContext());
+            }
             };
             mCardsDatabaseReference.addValueEventListener(mDatabaseListener);
         }
