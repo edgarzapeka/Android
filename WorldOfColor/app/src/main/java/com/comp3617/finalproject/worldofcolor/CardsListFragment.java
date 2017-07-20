@@ -305,9 +305,6 @@ public class CardsListFragment extends Fragment {
                 }
                 return null;
             }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {}
         }.execute();
     }
 
