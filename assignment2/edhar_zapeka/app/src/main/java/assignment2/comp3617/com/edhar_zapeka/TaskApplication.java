@@ -12,8 +12,6 @@ public class TaskApplication extends Application {
     public void onCreate() {
         super.onCreate();
     }
-
-
 }
 
 

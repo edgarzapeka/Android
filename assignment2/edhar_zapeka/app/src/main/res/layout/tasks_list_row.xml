@@ -61,7 +61,7 @@
         <ImageButton
         android:id="@+id/delete_button_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrwap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         app2:srcCompat="@drawable/ic_delete"
         android:background="@color/colorAccent"

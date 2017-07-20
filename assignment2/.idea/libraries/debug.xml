@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="debug">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_7cecbb628f37eb0604a4c25f31c6abc13234e526.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_15b6683924df7c4cdcb382e90c3977c201aca747.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_6eba587e39c4a23a461d8149ccdf230295c20330.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_e76b2ca0d5135c94ec7e4d830cf73c9ea5b1656f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_b810b94212dbc8cc4d71c03f1d0077cc566074b3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/debug_e25767049e84e12dc80e5c7edca6d991ee673c92.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_4194d17c1def30bf3dcf050c97d3a7ba089c9908.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_4daabfca59a5fd7732640873e761a26eb70fdd86.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_8376cb400e5a7dd79f6b22dece3af7a89be50215.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_3b7eb583a5a9f2a14b5e6181607d0665e84927fb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_37df3deac49644be603d9086391d297df5378f87.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_3c3243b2ff0880f12791a8ea60e49e137225e16c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_43125f9a7b0cf2a1ca23cee690f6b9d360b97118.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_b4bf784e10b4173cb0364e3596ad2967d3b24db6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_ab3976c07b7fd81764ee34185630bed78475618f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_f6e28d65e04fe88e0f51b93ec928d4da37de0acc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/edhar_zapeka/app/build/intermediates/pre-dexed/debug/classes_4729171af6567d80175580da147b567edfdb0f47.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

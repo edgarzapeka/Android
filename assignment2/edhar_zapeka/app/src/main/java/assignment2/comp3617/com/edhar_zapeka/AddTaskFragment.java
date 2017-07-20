@@ -114,7 +114,6 @@ public class AddTaskFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.add_task_menu, menu);
-        getActivity().getActionBar().setDisplayShowHomeEnabled(true);
     }
 
     @Override

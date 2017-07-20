@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/edz/code/Android/assignment2/edhar_zapeka/app/libs/additionnal.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="/Users/edz/code/Android/assignment2/edhar_zapeka/app/build/intermediates/pre-dexed/debug/additionnal_a61308b9f3ca1cea9703d9a47cded27d5d9d927a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/edz/code/Android/assignment2/edhar_zapeka/app/libs/activation.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="/Users/edz/code/Android/assignment2/edhar_zapeka/app/build/intermediates/pre-dexed/debug/activation_351bd2a4abab14ef19c8544e89cc1808104415c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/edz/code/Android/assignment2/edhar_zapeka/app/libs/mail.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="/Users/edz/code/Android/assignment2/edhar_zapeka/app/build/intermediates/pre-dexed/debug/mail_4fb1226607ede2933fc562121d09cfb4cc2a94f5.jar" />
+    </item>
+
+</items>
