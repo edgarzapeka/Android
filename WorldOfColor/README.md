@@ -3,11 +3,11 @@
 The application allow user to share photos with other users from their gallery or making photo in real time using camera. Also, it allow to get a list of colors from a picture and make a search by color. Personal page shows a bookmarked photos and your personal with some statistics.
 
 ### Libraries used in the project:
-1)Firebase (core, database, storage, auth, ui-auth)
-2) Palette (support library)
-3) Picasso (support library)
-4) RecyclerView (support library)
-5) CardView (support library)
+1)Firebase (core, database, storage, auth, ui-auth) </br>
+2) Palette (support library) </br>
+3) Picasso (support library) </br>
+4) RecyclerView (support library) </br>
+5) CardView (support library) </br>
 
 ## Registration and signin
 Registration and Signin handeled by Firebase-auth and Firebase auth-ui.
